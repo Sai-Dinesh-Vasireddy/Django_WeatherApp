@@ -1,0 +1,52 @@
+{% extends 'index2.html'%}
+
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Weather App Sign-in Page</title>
+
+    
+
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin w-100 m-auto">
+    <form method="POST">
+      {% csrf_token %}
+    {% load static %}
+    <img id='logo' src="{% static '/images/weatherlogo.png' %}" alt="logo">
+    
+    <h1 class="h3 mb-3 fw-normal">Weather App</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+    </div>
+      {% if messages %}
+        {% for message in messages %}
+        <div class="invalidalert">
+        <span style="color:blue">{{ message }}</span>
+        </div> 
+        {% endfor %}
+      {% endif %}				
+    
+      
+    
+    <button class="btn btn-lg btn-primary "  type="submit">Sign in</button>
+    
+  </form>
+</main>
+
+
+    
+  </body>
+</html>
+
+{% endblock %} 
